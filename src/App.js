@@ -37,6 +37,11 @@ const App = (props) => {
       .delete(`http://localhost:9000/api/movies/${id}`)
       .then((res) => {
         setMovies(res.data);
+        if (favoriteMovies.find((favMovie) => favMovie.id === id)) {
+          setFavoriteMovies(
+            favoriteMovies.filter((favMovie) => favMovie.id !== id)
+          );
+        }
         navigate("/movies");
       })
       .catch((err) => {
