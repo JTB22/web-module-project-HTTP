@@ -6,6 +6,7 @@ import Movie from "./components/Movie";
 
 import MovieHeader from "./components/MovieHeader";
 import EditMovieForm from "./components/EditMovieForm";
+import AddMovieForm from "./components/AddMovieForm";
 
 import FavoriteMovieList from "./components/FavoriteMovieList";
 
@@ -65,6 +66,11 @@ const App = (props) => {
             <Route
               path="movies/:id"
               element={<Movie deleteMovie={deleteMovie} />}
+            />
+
+            <Route
+              path="movies/add"
+              element={<AddMovieForm setMovies={setMovies} />}
             />
 
             <Route path="movies" element={<MovieList movies={movies} />} />
