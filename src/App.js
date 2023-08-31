@@ -44,7 +44,16 @@ const App = (props) => {
       });
   };
 
-  const addToFavorites = (movie) => {};
+  const addToFavorites = (movie) => {
+    if (favoriteMovies.find((favMovie) => favMovie.id === movie.id)) {
+      setFavoriteMovies(
+        favoriteMovies.filter((favMovie) => favMovie.id !== movie.id)
+      );
+    } else {
+      const newFavoriteList = [...favoriteMovies, movie];
+      setFavoriteMovies(newFavoriteList);
+    }
+  };
 
   return (
     <div>
@@ -65,7 +74,12 @@ const App = (props) => {
 
             <Route
               path="movies/:id"
-              element={<Movie deleteMovie={deleteMovie} />}
+              element={
+                <Movie
+                  deleteMovie={deleteMovie}
+                  addToFavorites={addToFavorites}
+                />
+              }
             />
 
             <Route
