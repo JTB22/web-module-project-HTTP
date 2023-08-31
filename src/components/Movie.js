@@ -4,7 +4,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Movie = (props) => {
-  const { addToFavorites, deleteMovie } = props;
+  const { addToFavorites, deleteMovie, favoriteMovies } = props;
 
   const [movie, setMovie] = useState("");
 
@@ -69,7 +69,9 @@ const Movie = (props) => {
                   className="m-2 btn btn-dark"
                   onClick={() => addToFavorites(movie)}
                 >
-                  Favorite
+                  {favoriteMovies.find((favMovie) => favMovie.id === movie.id)
+                    ? "Unfavorite"
+                    : "Favorite"}
                 </span>
                 <Link
                   to={`/movies/edit/${movie.id}`}

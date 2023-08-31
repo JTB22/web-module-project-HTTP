@@ -78,6 +78,7 @@ const App = (props) => {
                 <Movie
                   deleteMovie={deleteMovie}
                   addToFavorites={addToFavorites}
+                  favoriteMovies={favoriteMovies}
                 />
               }
             />
