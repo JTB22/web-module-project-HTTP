@@ -4,7 +4,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Movie = (props) => {
-  const { addToFavorites } = props;
+  const { addToFavorites, deleteMovie } = props;
 
   const [movie, setMovie] = useState("");
 
@@ -77,6 +77,7 @@ const Movie = (props) => {
                     type="button"
                     className="m-2 btn btn-danger"
                     value="Delete"
+                    onClick={() => deleteMovie(movie.id)}
                   />
                 </span>
               </section>
